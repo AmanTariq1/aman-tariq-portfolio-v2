@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aman Tariq | Software Engineer, Web &amp; AI</title>
+<meta name="description" content="Portfolio of Aman Tariq, a Software Engineering student in Muzaffarabad building full-stack web applications and AI tools with LLMs and RAG.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0e1526; --panel:#151e35; --line:#27324f; --text:#e8ecf6; --muted:#98a4c0;
+  --accent:#8a8fff; --accent-ink:#0e1526; --warm:#f2b84b;
+  --display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --body:"Instrument Sans","Segoe UI",system-ui,sans-serif;
+  --max:1080px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{background:var(--ink);color:var(--text);font-family:var(--body);font-size:1.0625rem;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{max-width:100%;display:block}
+:focus-visible{outline:2px solid var(--warm);outline-offset:3px;border-radius:4px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+section{padding:96px 0}
+h1,h2,h3{font-family:var(--display);line-height:1.1;letter-spacing:-.02em}
+h2{font-size:clamp(1.9rem,4vw,2.6rem);font-weight:800;margin-bottom:12px}
+.lead{color:var(--muted);max-width:60ch;margin-bottom:44px}
+
+/* header */
+header{position:sticky;top:0;z-index:20;background:rgba(14,21,38,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:var(--display);font-weight:800;font-size:1.2rem;text-decoration:none;letter-spacing:-.02em}
+.logo span{color:var(--accent)}
+nav ul{display:flex;gap:28px;list-style:none}
+nav a{color:var(--muted);text-decoration:none;font-size:.95rem;font-weight:500;transition:color .2s}
+nav a:hover{color:var(--text)}
+.menu-btn{display:none;background:none;border:1px solid var(--line);color:var(--text);width:44px;height:40px;border-radius:8px;font-size:1.2rem;cursor:pointer}
+
+/* hero */
+.hero{padding:72px 0 88px}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+.hello{color:var(--muted);font-weight:500;margin-bottom:10px}
+.hero h1{font-size:clamp(3rem,8vw,5.6rem);font-weight:800;margin-bottom:14px}
+.build{font-family:var(--display);font-size:clamp(1.3rem,3vw,1.8rem);font-weight:500;margin-bottom:22px;min-height:1.4em}
+.build .typed{color:var(--warm)}
+.caret{display:inline-block;width:2px;height:1.1em;background:var(--warm);margin-left:3px;vertical-align:-.15em;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.hero p.about-line{color:var(--muted);max-width:52ch;margin-bottom:32px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;padding:12px 22px;border-radius:10px;font-weight:600;text-decoration:none;font-size:1rem;border:1.5px solid var(--line);transition:transform .15s,background .2s,border-color .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn.primary:hover{background:#a1a5ff}
+.btn.ghost:hover{border-color:var(--accent)}
+
+/* pipeline (the one memorable element) */
+.pipe{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:26px 26px 22px}
+.pipe h3{font-size:1.05rem;font-weight:700;margin-bottom:4px}
+.pipe .sub{color:var(--muted);font-size:.9rem;margin-bottom:20px}
+.pipe ol{list-style:none;position:relative;padding-left:0}
+.pipe ol::before{content:"";position:absolute;left:15px;top:14px;bottom:14px;width:2px;background:var(--line)}
+.pipe li{position:relative;display:grid;grid-template-columns:32px 1fr;gap:14px;padding:9px 0;opacity:.45;transition:opacity .5s}
+.pipe li .dot{width:32px;height:32px;border-radius:50%;background:var(--ink);border:2px solid var(--line);display:grid;place-items:center;font-family:var(--display);font-weight:700;font-size:.85rem;color:var(--muted);position:relative;z-index:1;transition:all .5s}
+.pipe li strong{display:block;font-size:.98rem;line-height:1.3}
+.pipe li span.d{color:var(--muted);font-size:.88rem;line-height:1.4}
+.pipe li.on{opacity:1}
+.pipe li.on .dot{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.no-js .pipe li{opacity:1}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:320px 1fr;gap:56px;align-items:start}
+.photo{border-radius:18px;overflow:hidden;border:1px solid var(--line);background:var(--panel);aspect-ratio:4/5;display:grid;place-items:center}
+.photo img{width:100%;height:100%;object-fit:cover}
+.photo .initials{font-family:var(--display);font-weight:800;font-size:4rem;color:var(--accent)}
+.about-copy p{color:var(--muted);margin-bottom:18px;max-width:62ch}
+.about-copy p strong{color:var(--text);font-weight:600}
+.facts{display:grid;grid-template-columns:repeat(2,1fr);gap:0;margin:30px 0;border-top:1px solid var(--line)}
+.facts div{padding:16px 0;border-bottom:1px solid var(--line)}
+.facts dt{color:var(--muted);font-size:.85rem}
+.facts dd{font-weight:600}
+
+/* skills */
+.skill-rows{border-top:1px solid var(--line)}
+.skill-row{display:grid;grid-template-columns:220px 1fr;gap:24px;padding:22px 0;border-bottom:1px solid var(--line)}
+.skill-row h3{font-size:1.1rem;font-weight:700}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips li{list-style:none;background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:4px 14px;font-size:.92rem}
+
+/* projects */
+.flagship{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:34px;margin-bottom:28px}
+.flagship h3{font-size:clamp(1.5rem,3vw,2rem);font-weight:800;margin-bottom:10px}
+.flagship p{color:var(--muted);max-width:68ch;margin-bottom:16px}
+.flagship ul.points{margin:0 0 22px 20px;color:var(--muted);max-width:68ch}
+.flagship ul.points li{margin-bottom:6px}
+.proj-list{border-top:1px solid var(--line)}
+.proj{display:grid;grid-template-columns:1fr 1.2fr;gap:28px;padding:26px 0;border-bottom:1px solid var(--line)}
+.proj h3{font-size:1.25rem;font-weight:700;margin-bottom:10px}
+.proj p{color:var(--muted);margin-bottom:12px}
+.more{margin-top:28px}
+
+/* timeline */
+.timeline{list-style:none;position:relative;border-left:2px solid var(--line);margin-left:6px}
+.timeline li{position:relative;padding:0 0 34px 30px}
+.timeline li::before{content:"";position:absolute;left:-8px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--ink);border:2px solid var(--accent)}
+.timeline .when{color:var(--warm);font-weight:600;font-size:.92rem}
+.timeline h3{font-size:1.2rem;font-weight:700;margin:2px 0}
+.timeline .where{color:var(--muted)}
+.timeline p{color:var(--muted);margin-top:8px;max-width:64ch}
+
+/* contact */
+.contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:56px}
+.contact-list{list-style:none;margin-top:24px}
+.contact-list li{padding:14px 0;border-bottom:1px solid var(--line)}
+.contact-list small{display:block;color:var(--muted);font-size:.85rem}
+.contact-list a{text-decoration:none;font-weight:600;word-break:break-all}
+.contact-list a:hover{color:var(--accent)}
+form{display:grid;gap:16px}
+label{font-weight:600;font-size:.95rem;display:grid;gap:6px}
+input,textarea{font:inherit;background:var(--panel);color:var(--text);border:1.5px solid var(--line);border-radius:10px;padding:12px 14px;width:100%}
+input:focus,textarea:focus{outline:none;border-color:var(--accent)}
+textarea{min-height:140px;resize:vertical}
+.note{color:var(--muted);font-size:.88rem}
+
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:.92rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+@media (max-width:860px){
+  section{padding:72px 0}
+  .menu-btn{display:block}
+  nav{position:absolute;top:64px;left:0;right:0;background:var(--ink);border-bottom:1px solid var(--line);display:none}
+  nav.open{display:block}
+  nav ul{flex-direction:column;gap:0;padding:8px 24px 16px}
+  nav a{display:block;padding:12px 0}
+  .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
+  .photo{max-width:320px}
+  .skill-row,.proj{grid-template-columns:1fr;gap:12px}
+  .facts{grid-template-columns:1fr}
+  .flagship{padding:24px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .caret{animation:none}
+  *{transition:none!important}
+}
+</style>
+</head>
+<body class="no-js">
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#home" aria-label="Aman Tariq, home">Aman<span>.</span>Tariq</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="nav">&#9776;</button>
+    <nav id="nav" aria-label="Main">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#journey">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+<!-- HOME -->
+<section class="hero" id="home">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="hello">Hello, I&rsquo;m</p>
+      <h1>Aman Tariq</h1>
+      <p class="build">I build <span class="typed" id="typed">web apps and AI tools</span><span class="caret" aria-hidden="true"></span></p>
+      <p class="about-line">Software Engineering student in Muzaffarabad. I build full-stack web applications and AI assistants that answer questions from real documents using LLMs and RAG.</p>
+      <div class="btns">
+        <a class="btn primary" href="#projects">View my work</a>
+        <a class="btn ghost" href="Aman_Tariq_CV.pdf" download>Download CV</a>
+        <a class="btn ghost" href="#contact">Let&rsquo;s talk</a>
+      </div>
+    </div>
+
+    <aside class="pipe" aria-label="How the General AI Assistant works">
+      <h3>How my AI Assistant answers from your files</h3>
+      <p class="sub">The RAG pipeline behind my flagship project.</p>
+      <ol id="pipe">
+        <li><span class="dot">1</span><div><strong>Upload</strong><span class="d">A PDF, Word or text file</span></div></li>
+        <li><span class="dot">2</span><div><strong>Extract and chunk</strong><span class="d">The text is split into passages</span></div></li>
+        <li><span class="dot">3</span><div><strong>Embed and store</strong><span class="d">Passages become vectors in a database</span></div></li>
+        <li><span class="dot">4</span><div><strong>Retrieve</strong><span class="d">The closest passages to your question are found</span></div></li>
+        <li><span class="dot">5</span><div><strong>Answer</strong><span class="d">The language model replies using those passages</span></div></li>
+      </ol>
+    </aside>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap about-grid">
+    <div class="photo">
+      <!-- Keep Profile_img.jfif in the same folder as this file -->
+      <img src="Profile_img.jfif" alt="Portrait of Aman Tariq" width="320" height="400" onerror="this.remove();document.getElementById('ini').hidden=false">
+      <span class="initials" id="ini" hidden>AT</span>
+    </div>
+    <div class="about-copy">
+      <h2>About me</h2>
+      <p>I&rsquo;m a BS Software Engineering student at the University of Azad Jammu and Kashmir. I like building things that work end to end: the interface, the backend, the database, and increasingly the AI behind it.</p>
+      <p>In 2025 I interned as a web developer at the <strong>AJK Information Technology Board</strong>, building React and Node.js applications. I then trained in <strong>AI/ML Engineering</strong> and <strong>Web Engineering</strong> at the AJK IT Excellence Center, where I started building chatbots with LLMs and RAG.</p>
+      <dl class="facts">
+        <div><dt>Studying</dt><dd>BS Software Engineering, UAJK</dd></div>
+        <div><dt>Current semester</dt><dd>7th, CGPA 3.64</dd></div>
+        <div><dt>Graduating</dt><dd>September 2027</dd></div>
+        <div><dt>Based in</dt><dd>Muzaffarabad, AJK, Pakistan</dd></div>
+      </dl>
+      <a class="btn primary" href="Aman_Tariq_CV.pdf" download>Download CV</a>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="wrap">
+    <h2>Skills</h2>
+    <p class="lead">What I work with, grouped by what I use it for.</p>
+    <div class="skill-rows">
+      <div class="skill-row"><h3>Web development</h3>
+        <ul class="chips"><li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>React</li><li>Node.js</li><li>PHP</li><li>Bootstrap</li><li>Tailwind CSS</li><li>REST APIs</li><li>WordPress and WooCommerce</li></ul></div>
+      <div class="skill-row"><h3>AI and machine learning</h3>
+        <ul class="chips"><li>LLMs</li><li>RAG</li><li>Generative AI</li><li>NLP</li><li>Deep learning</li><li>Computer vision</li><li>Transformers</li><li>Prompt engineering</li><li>Groq API</li><li>Streamlit</li></ul></div>
+      <div class="skill-row"><h3>Programming languages</h3>
+        <ul class="chips"><li>Python</li><li>JavaScript</li><li>PHP</li><li>Java</li><li>C</li><li>C++</li></ul></div>
+      <div class="skill-row"><h3>Databases</h3>
+        <ul class="chips"><li>MySQL</li><li>Microsoft SQL Server</li><li>Database design</li><li>CRUD operations</li></ul></div>
+      <div class="skill-row"><h3>Design and tools</h3>
+        <ul class="chips"><li>Git and GitHub</li><li>Figma</li><li>Canva</li><li>Adobe Photoshop</li><li>Adobe Illustrator</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="wrap">
+    <h2>Projects</h2>
+    <p class="lead">One AI project I&rsquo;m proudest of, and the web work around it.</p>
+
+    <article class="flagship">
+      <h3>General AI Assistant with dynamic RAG</h3>
+      <p>A chatbot that talks normally with a language model, and switches to answering from your own documents the moment you upload one.</p>
+      <ul class="points">
+        <li>Accepts PDF, Word and text files, then extracts, chunks and embeds them into a vector database.</li>
+        <li>Retrieves the most relevant passages and gives them to the model for grounded answers.</li>
+        <li>Switches automatically between normal chat mode and RAG mode.</li>
+        <li>Includes a web interface for uploading files and chatting.</li>
+      </ul>
+      <ul class="chips"><li>LLMs</li><li>RAG</li><li>Embeddings</li><li>Vector database</li><li>NLP</li><li>Python</li></ul>
+      <!-- Add a "Source code" / "Live demo" button here once the repository link is ready -->
+    </article>
+
+    <div class="proj-list">
+      <article class="proj">
+        <div><h3>AI Humorous Chatbot</h3>
+          <ul class="chips"><li>Python</li><li>Groq API</li><li>Streamlit</li></ul></div>
+        <p>A conversational chatbot that replies with humour, built on the Groq API with an interactive Streamlit interface.</p>
+      </article>
+      <article class="proj">
+        <div><h3>Websites and WooCommerce stores</h3>
+          <ul class="chips"><li>PHP</li><li>WordPress</li><li>JavaScript</li><li>MySQL</li></ul></div>
+        <p>Responsive portfolio sites, blogs, landing pages and e-commerce stores with customised themes and optimised product pages, plus API-driven apps for data management.</p>
+      </article>
+      <article class="proj">
+        <div><h3>This portfolio</h3>
+          <ul class="chips"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul></div>
+        <p>A fast, responsive personal site presenting my background, skills and projects, hosted on GitHub Pages.</p>
+      </article>
+    </div>
+    <p class="more"><a class="btn ghost" href="https://github.com/AmanTariq1" target="_blank" rel="noopener">See all repositories on GitHub</a></p>
+  </div>
+</section>
+
+<!-- JOURNEY -->
+<section id="journey">
+  <div class="wrap">
+    <h2>Experience and training</h2>
+    <p class="lead">Where I&rsquo;ve studied and worked, in order.</p>
+    <ol class="timeline">
+      <li><span class="when">2023 to present</span><h3>BS Software Engineering</h3><p class="where">University of Azad Jammu and Kashmir, Muzaffarabad</p>
+        <p>Data structures and algorithms, object-oriented programming, database systems and computer networking. Now in the 7th semester.</p></li>
+      <li><span class="when">Summer 2025</span><h3>Web Development Intern</h3><p class="where">AJK Information Technology Board, Muzaffarabad</p>
+        <p>Built React and Node.js web applications and responsive interfaces, and learned full-stack practices in a professional setting.</p></li>
+      <li><span class="when">2025</span><h3>AI/ML Engineering</h3><p class="where">AJK IT Excellence Center, Muzaffarabad</p>
+        <p>Chatbots with LLMs and RAG, computer vision, neural networks, deep learning and transformers.</p></li>
+      <li><span class="when">2026</span><h3>Web Engineering</h3><p class="where">AJK IT Excellence Center, Muzaffarabad</p>
+        <p>Responsive websites, e-commerce stores and full-stack web applications.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <h2>Let&rsquo;s talk</h2>
+      <p class="lead" style="margin-bottom:0">I&rsquo;m looking for internship and entry-level opportunities, and open to freelance work and collaboration.</p>
+      <ul class="contact-list">
+        <li><small>Email</small><a href="mailto:amantariqa344@gmail.com">amantariqa344@gmail.com</a></li>
+        <li><small>GitHub</small><a href="https://github.com/AmanTariq1" target="_blank" rel="noopener">github.com/AmanTariq1</a></li>
+        <li><small>LinkedIn</small><a href="https://www.linkedin.com/in/aman-tariq-4a661537a/" target="_blank" rel="noopener">linkedin.com/in/aman-tariq</a></li>
+        <li><small>Location</small>Muzaffarabad, AJK, Pakistan</li>
+      </ul>
+    </div>
+    <form id="contactForm" aria-label="Send me a message">
+      <label>Your name<input type="text" id="fname" required autocomplete="name"></label>
+      <label>Your email<input type="email" id="femail" required autocomplete="email"></label>
+      <label>Message<textarea id="fmsg" required></textarea></label>
+      <button class="btn primary" type="submit">Send message</button>
+      <p class="note">This opens your email app with the message ready to send.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; <span id="yr">2026</span> Aman Tariq</span>
+    <span>Muzaffarabad, Pakistan</span>
+  </div>
+</footer>
+
+<script>
+document.body.classList.remove('no-js');
+var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* mobile menu */
+var btn = document.getElementById('menuBtn'), nav = document.getElementById('nav');
+btn.addEventListener('click', function(){
+  var open = nav.classList.toggle('open');
+  btn.setAttribute('aria-expanded', open);
+});
+nav.addEventListener('click', function(e){ if(e.target.tagName==='A'){ nav.classList.remove('open'); btn.setAttribute('aria-expanded', false); } });
+
+/* typed headline */
+var typed = document.getElementById('typed');
+var words = ['web apps and AI tools','RAG chatbots','full-stack websites','things that work end to end'];
+if(!reduce){
+  var w = 0, c = words[0].length, del = true;
+  (function tick(){
+    var word = words[w];
+    typed.textContent = word.slice(0, c);
+    var wait = 70;
+    if(del){ c--; wait = 35; if(c < 0){ del = false; w = (w+1)%words.length; c = 0; wait = 250; } }
+    else { c++; if(c > words[w].length){ del = true; c = words[w].length; wait = 1800; } }
+    setTimeout(tick, wait);
+  })();
+}
+
+/* pipeline lights up once, step by step */
+var steps = document.querySelectorAll('#pipe li');
+if(reduce){ steps.forEach(function(s){ s.classList.add('on'); }); }
+else { steps.forEach(function(s,i){ setTimeout(function(){ s.classList.add('on'); }, 600 + i*650); }); }
+
+/* contact form opens the visitor's email app */
+document.getElementById('contactForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  var n = document.getElementById('fname').value, m = document.getElementById('femail').value, t = document.getElementById('fmsg').value;
+  var body = t + '\n\nFrom: ' + n + ' (' + m + ')';
+  location.href = 'mailto:amantariqa344@gmail.com?subject=' + encodeURIComponent('Portfolio message from ' + n) + '&body=' + encodeURIComponent(body);
+});
+
+document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
